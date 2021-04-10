@@ -1,0 +1,59 @@
+<h1 class="text-white  text-center mt-5 py-5"> Registretion Form</h1>
+<form [formGroup]="sinUPForm" class=" py-5 text-white w-50 m-auto" (ngSubmit)="sinUPForm.valid&&signup()">
+
+      
+        <h3 class="text-white py-3"><span class="text-danger mx-2">*</span>Required</h3>
+        <label class="m-2">First Name</label>
+        <input formControlName="first_name"  class="form-control my-3" type="text" placeholder="Enter Your First Name">
+    
+    
+      <div *ngIf="sinUPForm.get('first_name').errors && sinUPForm.get('first_name').touched" class="alert border border-danger">
+          <p *ngIf="sinUPForm.get('first_name').errors.required">first name is required</p>
+          <p *ngIf="sinUPForm.get('first_name').errors.minlength">first name is min length is 6 char</p>
+          <p *ngIf="sinUPForm.get('first_name').errors.maxlength">first name is max length is 12 char</p>
+    
+      </div>
+   
+      <label class="my-2">Last Name</label>
+      <input formControlName="last_name"  class="form-control my-3" type="text" placeholder="Enter Your Last Name">
+      <div *ngIf="sinUPForm.get('last_name').errors && sinUPForm.get('last_name').touched" class="alert border border-danger">
+          <p *ngIf="sinUPForm.get('last_name').errors.required">last name is required</p>
+          <p *ngIf="sinUPForm.get('last_name').errors.minlength">last name is min length is 6 char</p>
+          <p *ngIf="sinUPForm.get('last_name').errors.maxlength">last name is max length is 12 char</p>
+    
+      </div>
+
+
+      <label class="my-2"> Age</label>
+    <input formControlName="age"  class="form-control my-3" type="number" placeholder="Enter Your Age">
+
+    <div *ngIf="sinUPForm.get('age').errors && sinUPForm.get('age').touched" class="alert border border-danger">
+        <p *ngIf="sinUPForm.get('age').errors.required">age is required</p>
+        <p *ngIf="sinUPForm.get('age').errors.min">age is min years is 12 years</p>
+        <p *ngIf="sinUPForm.get('age').errors.max">age is max  is 25 years</p>
+  
+    </div>
+
+
+      <label class="my-2">E-mail</label>
+      <input formControlName="email"  class="form-control my-3" type="email" placeholder="Enter Your E-mail">
+  
+      <div *ngIf="sinUPForm.get('email').errors && sinUPForm.get('email').touched" class="alert border border-danger">
+          <p *ngIf="sinUPForm.get('email').errors.required">email is required</p>
+          <p *ngIf="sinUPForm.get('email').errors.email">this is value is not e-mail</p>
+    
+      </div>
+
+
+
+
+      <label class="my-2">password</label>
+    <input formControlName="password"  class="form-control my-3" type="password" placeholder="Enter Your Password">
+
+    <div *ngIf="sinUPForm.get('password').errors && sinUPForm.get('password').touched" class="alert border border-danger">
+        <p *ngIf="sinUPForm.get('password').errors.required">password is required</p>
+        <p *ngIf="sinUPForm.get('password').errors.pattern">password is include captital char or small char 0-9 chars</p>
+  
+    </div>
+      <button [disabled]="sinUPForm.invalid" type="submit" class="btn btn-info float-right py-2 px-2">Register</button>
+    </form>

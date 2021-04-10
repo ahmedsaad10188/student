@@ -1,0 +1,24 @@
+<nav class="navbar py-3 navbar-expand-sm navbar-dark fixed-top" style="background-color: #07c;">
+    <div class="container-fluid">
+      <a class="navbar-brand text-uppercase text-bold" href="#">Students</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation"></button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item active py-2 px-2">
+                  <a    *ngIf="isAuth==true" class="nav-link" routerLinkActive="active2" routerLink="Home">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active py-2 px-2">
+                <a *ngIf="isAuth==false" class="nav-link"  routerLinkActive="active2" routerLink="Registration">Registration<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active py-2 px-2">
+              <a *ngIf="isAuth==false" class="nav-link"  routerLinkActive="active2" routerLink="Login">Login<span class="sr-only">(current)</span></a>
+          </li>
+          <button *ngIf="isAuth==true" (click)="logout()" class="btn btn-danger px-3">LogOut</button>
+             
+              
+          </ul>
+       
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,31 @@
+
+
+    
+
+<div class="container">
+    <div class="title text-center py-5">
+
+    <h1 class="mt-5">Student List</h1>
+
+    <div class="py-2">
+    </div>
+    </div>
+    <div class="row text-white py-3 ">
+        <div *ngFor="let student of students   let i = index  ;let l=last" class="col-md-6 py-3 ">
+           <a [routerLink]='["/details",i]'>
+
+                        <ul class="list-unstyled shadow2 text-center">
+                            <li class="py-2 text-white"> <span class="name">Name: </span> {{student.first_name}} {{student.last_name}}</li>
+                        </ul>
+        </a>
+        </div>
+    </div>
+
+    <div class="pagenation d-flex justify-content-center w-50 mx-auto my-5 py-5">
+        <div class="px-4 page"  *ngFor="let pagenumber of pagenumbers;let i =index" (click)="changenumber(pagenumber)">
+                {{pagenumber}}
+        </div>
+    </div>
+</div>
+
+

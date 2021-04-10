@@ -1,0 +1,27 @@
+<h1 class="text-white  text-center mt-5 py-5"> Log In Form</h1>
+<form [formGroup]="sinInForm" class=" py-5 text-white w-50 m-auto" (ngSubmit)="logIn()">
+
+
+        <h3 class="text-white py-3"><span class="text-danger mx-2">*</span>Required</h3>
+   
+        <label class="my-2">E-mail</label>
+        <input formControlName="email"  class="form-control my-3" type="email" placeholder="Enter Your E-mail">
+    
+        <div *ngIf="sinInForm.get('email').errors && sinInForm.get('email').touched" class="alert border border-danger">
+            <p *ngIf="sinInForm.get('email').errors.required">email is required</p>
+            <p *ngIf="sinInForm.get('email').errors.email">this is value is not e-mail</p>
+      
+        </div>
+    
+        <label class="my-2">password</label>
+        <input formControlName="password"  class="form-control my-3" type="password" placeholder="Enter Your Password">
+    
+        <div *ngIf="sinInForm.get('password').errors && sinInForm.get('password').touched" class="alert border border-danger">
+            <p *ngIf="sinInForm.get('password').errors.required">password is required</p>
+            <p *ngIf="sinInForm.get('password').errors.pattern">password is include captital char or small char 0-9 chars</p>
+      
+        </div>
+      <button [disabled]="sinInForm.invalid" type="submit" class="btn btn-primary float-right py-2 px-2">Register</button>
+      <a routerLink="/Registration">Don't have account ,Registreration</a>
+    </form>
+  
